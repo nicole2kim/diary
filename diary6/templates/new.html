@@ -1,11 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <h1>일기 쓰기</h1>
 
-<form action="{%url 'create'%}" method="post">
+<form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
-    <p>제목: <input type="text" name="title"></p>
-    본문: <textarea name="body" id="" cols="30" rows="10"></textarea>
-    <br>
+    {{form.as_p}}
     <button type="submit">작성완료!</button>
     <br>
     <a href="{%url 'list1'%}">목록으로 돌아가기</a>
 </form>
+
+{% endblock%}

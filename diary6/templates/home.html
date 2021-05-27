@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+
     <h1>2021 김희연의 일기장!</h1>
-    <h3>총 일기 개수: </h3>
     <a href="{%url 'list1'%}">목록으로 들어가기</a>
-</body>
-</html>
+    
+{% endblock%}

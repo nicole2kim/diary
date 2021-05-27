@@ -15,17 +15,15 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-from diary6.views import *
+from django.urls import path, include
+from account.views import first
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name="home"),
-    path('list1/', list1, name="list1"),
-    path('<str:id>', detail, name="detail"),
-    path('new/', new, name="new"),
-    path('create/', create, name="create"),
-    path('edit/<str:id>', edit, name="edit"),
-    path('update/<str:id>', update, name="update"),
-    path('delete/<str:id>', delete, name='delete'),
-]
+    path('', first, name="first"),
+    path('diary6/', include('diary6.urls')),
+    path('account/', include('account.urls')),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

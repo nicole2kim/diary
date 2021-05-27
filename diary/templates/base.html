@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    {% load static %}
+
+    <div class="bgImage"></div>
+        <style>
+        .bgImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: center / cover no-repeat url('/static/2031F0C0-6347-4A86-9228-74F5624FD8AB.jpg');
+        opacity: 0.5;
+        }
+      
+        body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+    </style>
+    <a href="{%url 'logout' %}">로그아웃하기</a>
+    {% if user.is_authenticated %}
+    {{user.username}}님, 환영합니다!
+    {% endif %}
+    <div class="container">
+        {% block content %}
+        {% endblock%}
+    </div>
+</body>
+</html>
